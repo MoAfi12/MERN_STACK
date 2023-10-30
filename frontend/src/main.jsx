@@ -4,13 +4,12 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import DeleteBooks from './pages/deleteBooks.jsx';
-import CreateBooks from './pages/createBooks.jsx';
 
 import ListBooks from './components/ListBooks.jsx';
 import InfoBook from './components/InfoBook.jsx';
 import EditBooks from './components/EditBook.jsx';
 import Home from './pages/Home.jsx';
+import CreateBooks from './pages/CreateBooks.jsx';
 
 const router = createBrowserRouter([
   {
