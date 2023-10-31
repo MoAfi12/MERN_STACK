@@ -8,23 +8,17 @@ const app = express()
 app.use(express.json())
 
 const whitelist = ['http://localhost:3000', 'http://localhost:5173'];
-
-// Configure CORS middleware with whitelist
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
-      callback(null, true); // Allow the request
+var corsOptionsDelegate = function (req, callback) {
+    var corsOptions;
+    if (whitelist.indexOf(req.header('Origin')) !== -1) {
+        corsOptions = { origin: true };  // Reflect (enable) the requested origin in the CORS response
     } else {
-      callback(new Error('Not allowed by CORS')); // Deny the request
+        corsOptions = { origin: false };  // Disable CORS for this request
     }
-  },
+    callback(null, corsOptions);  // Callback expects two parameters: error and options
 };
 
-app.use(cors(corsOptions));
-
-
-var whil
-
+app.use(cors(corsOptionsDelegate));
 
 app.use('/api', useRouter)
   
