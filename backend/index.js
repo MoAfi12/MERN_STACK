@@ -7,7 +7,7 @@ const app = express()
 
 app.use(express.json())
 
-const whitelist = ['http://localhost:3000', 'http://localhost:5173'];
+const whitelist = ['http://localhost:3000', 'http://localhost:5173', 'https://store-books.onrender.com/'];
 
 // Configure CORS middleware with whitelist
 const corsOptions = {
