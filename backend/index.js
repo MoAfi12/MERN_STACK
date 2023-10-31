@@ -7,7 +7,7 @@ const app = express()
 
 app.use(express.json())
 
-const whitelist = ['http://localhost:3000', 'http://localhost:4173'];
+const whitelist = ['http://localhost:3000', 'http://localhost:4173', 'https://nodejs-deploy-6spo.onrender.com/'];
 
 // Configure CORS middleware with whitelist
 const corsOptions = {
