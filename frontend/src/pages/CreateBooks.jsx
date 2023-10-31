@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function CreateBooks() {
   const[name , setName] = useState('')
@@ -8,6 +9,7 @@ function CreateBooks() {
   const[publishYear , setPublishYear] = useState('')
   const[price , setPrice] = useState('')
 
+  const navigate = useNavigate()
 
 const handleSved = async()=>{
   try{
@@ -28,7 +30,7 @@ const handleSved = async()=>{
   else{
     const state = await axios.post("http://localhost:3000/api/books/register-book", data)
    console.log("the saved data" , state)
-
+   navigate("/list-books")
   }
 }
     catch(error){
